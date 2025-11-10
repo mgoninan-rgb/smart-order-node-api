@@ -10,16 +10,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mgoninan-rgb/dfasdfasgasdf.git"
+    "url": "git+https://github.com/mgoninan-rgb/smart-order-node-api.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/mgoninan-rgb/dfasdfasgasdf/issues"
+    "url": "https://github.com/mgoninan-rgb/smart-order-node-api.git/issues"
   },
-  "homepage": "https://github.com/mgoninan-rgb/dfasdfasgasdf#readme",
+  "homepage": "https://github.com/mgoninan-rgb/smart-order-node-api.git#readme",
   "dependencies": {
     "@supabase/supabase-js": "^2.80.0",
     "dotenv": "^17.2.3",
