@@ -1,0 +1,32 @@
+{
+  "name": "smart-order-node-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mgoninan-rgb/dfasdfasgasdf.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/mgoninan-rgb/dfasdfasgasdf/issues"
+  },
+  "homepage": "https://github.com/mgoninan-rgb/dfasdfasgasdf#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.80.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
