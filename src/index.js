@@ -14,9 +14,9 @@ const app = express();
 app.use(express.json()); // allows JSON request bodies
 
 // HTTP request logger
-app.use(morgan("dev")); 
+app.use(morgan("dev"));
 
-// Enable CORS for all routes 
+// Enable CORS for all routes
 app.use(cors());
 
 //initialize fetch for environments that don't have it natively
@@ -63,19 +63,17 @@ app.post("/api/orders", async (req, res) => {
 
 // Example Delete route: Delete an order by ID
 app.delete("/api/orders/:id", async (req, res) => {
+  //console.log("DELETE route hit:", req.params.id);
   const { id } = req.params;
 
-  const { data, error } = await supabase
-    .from("orders")
-    .delete()
-    .eq("id", id);
+  const { data, error } = await supabase.from("orders").delete().eq("id", id);
 
   if (error) {
     console.error("❌ Supabase error:", error);
     return res.status(500).json({ error: error.message });
   }
 
-  res.json({ message: "Order " + id + " deleted successfully", order: data[0] });
+  res.json({ message: `Order ${id} deleted successfully` });
 });
 
 // Start the server
