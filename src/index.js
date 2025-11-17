@@ -2,6 +2,9 @@
 import express from "express";
 import dotenv from "dotenv";
 import { createClient } from "@supabase/supabase-js";
+import cors from "cors";
+//import fetch from "node-fetch";
+import morgan from "morgan";
 
 // Load environment variables from .env
 dotenv.config();
@@ -9,6 +12,16 @@ dotenv.config();
 // Initialize Express app
 const app = express();
 app.use(express.json()); // allows JSON request bodies
+
+// HTTP request logger
+app.use(morgan("dev")); 
+
+// Enable CORS for all routes 
+app.use(cors());
+
+//initialize fetch for environments that don't have it natively
+//const response = await fetch("http://localhost:8000/analyze/123");
+//const result = await response.json();
 
 // Connect to Supabase
 const supabase = createClient(
@@ -46,6 +59,23 @@ app.post("/api/orders", async (req, res) => {
   res
     .status(201)
     .json({ message: "Order created successfully", order: data[0] });
+});
+
+// Example Delete route: Delete an order by ID
+app.delete("/api/orders/:id", async (req, res) => {
+  const { id } = req.params;
+
+  const { data, error } = await supabase
+    .from("orders")
+    .delete()
+    .eq("id", id);
+
+  if (error) {
+    console.error("❌ Supabase error:", error);
+    return res.status(500).json({ error: error.message });
+  }
+
+  res.json({ message: "Order " + id + " deleted successfully", order: data[0] });
 });
 
 // Start the server
